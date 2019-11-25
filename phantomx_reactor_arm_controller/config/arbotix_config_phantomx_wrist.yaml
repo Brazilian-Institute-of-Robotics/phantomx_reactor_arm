@@ -20,7 +20,3 @@ controllers: {
 #
 # Be carefull with dependency of j2-j3 and j4-j5!!!
 # Use the node phantomx_reactor_parallel_motor_joints.py for that purpose
-#
-
-
-#max_speed: 50.0
