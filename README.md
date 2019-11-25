@@ -130,6 +130,7 @@ rostopic pub /wrist_yaw_joint/command std_msgs/Float64 "data: 0.0"
 rostopic pub /wrist_pitch_joint/command std_msgs/Float64 "data: 0.0"
 rostopic pub /gripper_revolute_joint/command std_msgs/Float64 "data: 0.0"
 rostopic pub /gripper_prismatic_joint/command std_msgs/Float64 "data: 0.0"
+```
 
 ### Changes made in the package
 
