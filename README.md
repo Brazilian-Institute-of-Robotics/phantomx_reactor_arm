@@ -131,3 +131,9 @@ rostopic pub /wrist_pitch_joint/command std_msgs/Float64 "data: 0.0"
 rostopic pub /gripper_revolute_joint/command std_msgs/Float64 "data: 0.0"
 rostopic pub /gripper_prismatic_joint/command std_msgs/Float64 "data: 0.0"
 ```
+
+### Changes made in the package
+
+* Joints speeds changed in the *arbotix_config_phantomx_wrist.yaml* file;
+* Added arm controller type in the *arbotix_config_phantomx_wrist.yaml* file.
+
