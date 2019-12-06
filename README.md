@@ -49,18 +49,20 @@ git clone https://github.com/RobotnikAutomation/phantomx_reactor_arm.git
 
 #### For the Arbotix-M and USB2Dynamixel
 
+If you will use a FTDI cable to communicate the ArbotiX-M with the computer, make sure to install the FTDI drivers as described in the STEP 2 of the [Arbotix Quick Start Guide](https://learn.trossenrobotics.com/arbotix/7-arbotix-quick-start-guide).
+
 In the phantomx_reactor_arm_controller/config folder there's the file 57-reactor_arbotix.rules/reactor_usb2dynamixel.rules. You have to copy it into the /etc/udev/rules.d folder.
 
 ```
 sudo cp 57-reactor_arbotix.rules /etc/udev/rules.d
 ```
 
-You have to set the attribute ATTRS{serial} with the current serial number of the ftdi device
+You have to set the attribute ATTRS{serial} with the current serial number of the FTDI device. Use the command below to get this serial number, and then, change the ATTRS{serial} number in your 57-reactor_arbotix.rules file.
 
 ```
 udevadm info -a -n /dev/ttyUSB0 | grep serial 
 ```
-Once modified you have to reload and restart the udev daemon
+Once modified you have to reload and restart the udev daemon.
 
 ```
 sudo service udev reload
@@ -115,7 +117,7 @@ Use the command topic subscribed by the node phantomx_reactor_parallel_motor_joi
 rostopic pub /phantomx_reactor_controller/shoulder_yaw_joint/command std_msgs/Float64 "data: 0.0"
 rostopic pub /phantomx_reactor_controller/shoulder_pitch_joint/command std_msgs/Float64 "data: 0.0"
 rostopic pub /phantomx_reactor_controller/elbow_pitch_joint/command std_msgs/Float64 "data: 0.0"
-rostopic pub /phantomx_reactor_controller/wrist_yaw_joint/command std_msgs/Float64 "data: 0.0"
+rostopic pub /phantomx_reactor_controller/wrist_roll_joint/command std_msgs/Float64 "data: 0.0"
 rostopic pub /phantomx_reactor_controller/wrist_pitch_joint/command std_msgs/Float64 "data: 0.0"
 rostopic pub /phantomx_reactor_controller/gripper_revolute_joint/command std_msgs/Float64 "data: 0.0"
 rostopic pub /phantomx_reactor_controller/gripper_prismatic_joint/command std_msgs/Float64 "data: 0.0"
@@ -126,7 +128,7 @@ rostopic pub /phantomx_reactor_controller/gripper_prismatic_joint/command std_ms
 rostopic pub /shoulder_yaw_joint/command std_msgs/Float64 "data: 0.0"
 rostopic pub /shoulder_pitch_joint/command std_msgs/Float64 "data: 0.0"
 rostopic pub /elbow_pitch_joint/command std_msgs/Float64 "data: 0.0"
-rostopic pub /wrist_yaw_joint/command std_msgs/Float64 "data: 0.0"
+rostopic pub /wrist_roll_joint/command std_msgs/Float64 "data: 0.0"
 rostopic pub /wrist_pitch_joint/command std_msgs/Float64 "data: 0.0"
 rostopic pub /gripper_revolute_joint/command std_msgs/Float64 "data: 0.0"
 rostopic pub /gripper_prismatic_joint/command std_msgs/Float64 "data: 0.0"
